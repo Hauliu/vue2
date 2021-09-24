@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <div>
+        <a >账号</a>
+        <input v-bind:placeholder="tips">
+        </div>
+        <div>
+        <a >密码</a>
+        <input v-bind:placeholder="password">
+        </div>
+        <div>
+            {{tips}}-反转的意思是-{{tips.split('').reverse().join('')}}
+        </div>
+        <div :title="'vue.js' + index">这是一个div</div>
+        <hr>
+        <img  v-bind:src="photo" alt="" style="width: 150px">
+    </div>
+    <script src="./vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                // 建立一个登录页面的框
+                tips: '请输入用户名或手机号',
+                //底部设置一个图片
+                photo: 'https://img-home.csdnimg.cn/images/20201124032511.png',
+                password: '请输入密码',
+                index: 3
+            }
+        })
+    </script>
+</body>
+</html>
