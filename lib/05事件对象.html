@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div  id="app">
+       <p >count 的值是：{{count}} </p>   
+       <button @click="add($event,1)">点击变色</button>
+   </div>
+   <script src="./vue-2.6.12.js"></script>
+       <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            },
+            methods: {
+                add (e,n){
+					this.count += n
+					console.log(e)
+					
+					if (this.count % 2 === 0){
+						//如果是偶数，颜色变成红色
+						e.target.style.backgroundColor = 'red'
+					}else{
+						//为奇数时，恢复默认颜色
+						e.target.style.backgroundColor = ''
+					}
+                }
+              
+            }  
+        })
+
+       </script>
+</body>
+</html>
