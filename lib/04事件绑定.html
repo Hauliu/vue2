@@ -9,7 +9,7 @@
 <body>
    <div  id="app">
        <p >count 的值是：{{count}} </p>   
-       <button v-on:click="add">点击+1</button>
+       <button v-on:click="add(2)">点击+2</button>
        <button v-on:click="sub">-1</button>
 
        
@@ -23,13 +23,13 @@
                 count: 0
             },
             methods: {
-                add (){
+                add (n){
                     console.log('ok'),
-                   vm.count += 2
+                   this.count += 2
                 },
                 sub (){
                     console.log('好强'),
-                    vm.count -= 1
+                    this.count -= 1
 
                 }
             }  
