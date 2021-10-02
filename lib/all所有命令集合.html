@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>所有命令集合</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-bind 渲染指令实现鼠标悬停事件 -->
+        <span v-bind:title="message">鼠标悬停几秒出现信息</span>
+
+        <hr>
+        <!-- v-if 使用 -->
+        <p v-if="seen">现在你能看到我，是因为我把状态调节为true</p>
+
+        <hr>
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+    <script src="./vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: '现在的时间是：'+new Date().toLocaleString(),
+                seen: true,
+
+                // 遍历方法
+                todos: [
+                { text: '学习 JavaScript' },
+                { text: '学习 Vue' },
+                { text: '整个牛项目' }
+                ] 
+
+
+            }
+        })
+    </script>
+    
+</body>
+</html>
