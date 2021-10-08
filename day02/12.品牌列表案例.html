@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./lib/bootstrap.css">
-    <link rel="stylesheet" href="./品牌列表案例/css/brandlist.css">
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+    <link rel="stylesheet" href="../品牌列表案例/css/brandlist.css">
 </head>
 <body>
 
@@ -58,7 +58,8 @@
                   <label class="custom-control-label" :for="'cd' + item.id" v-else>start</label>
                 </div>
               </td>
-              <td>{{item.time}}</td>
+              <!-- 加入全局过滤器，显示时间： YYYY-MM-DD HH:ss:mm -->
+              <td>{{item.time | filterTime}}</td>
               <td>
                 <a href="javascript:;" @click="remove(item.id)">删除</a>
               </td>
@@ -66,17 +67,29 @@
           </tbody>
         </table>
       </div>
-<script src="./lib/vue-2.6.12.js"></script>
+
+<script src="../lib/vue-2.6.12.js"></script>
+<script src="../品牌列表案例/lib/dayjs.min.js"></script>
 <script>
+
+    // 添加全局过滤器
+    Vue.filter('filterTime',function(time){
+
+      //对time 进行格式化处理 格式为 : YYYY-MM-DD HH:mm:ss
+      const timeStr = dayjs(time).format('YYYY/MM/DD HH:mm:ss')
+      //返回时间
+      return timeStr
+    })
+
     const vm = new Vue({
         el: '#app',
         data: {
             bran: '',
             indexId: 4,
             list: [
-                {id: 1, name: '宝马', status: true, time: new Date().toLocaleString()},
-                {id: 2, name: '奔驰', status: false, time: new Date().toLocaleString()},
-                {id: 3, name: '奥迪', status: true, time: new Date().toLocaleString()}
+                {id: 1, name: '宝马', status: true, time: new Date()},
+                {id: 2, name: '奔驰', status: false, time: new Date()},
+                {id: 3, name: '奥迪', status: true, time: new Date()}
             ]
 
         },
@@ -97,7 +110,7 @@
                         id: this.indexId,
                         name: this.bran,
                         status: true,
-                        time: new Date().toLocaleString()
+                        time: new Date()
 
                     }
 
