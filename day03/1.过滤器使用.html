@@ -35,6 +35,18 @@
                 }
             }
         })
+
+        // 过滤器
+        Vue.filter('cai',function(str){
+            //设置第一个索引为大写
+            const f1 = str.charAt(0).toUpperCase()
+            //字符串 slice 方法，从指定索引往后截取
+            const s1 = str.slice(1)
+
+            return f1 + s1 + '``````'
+
+        })
+        
     </script>
     
 </body>
