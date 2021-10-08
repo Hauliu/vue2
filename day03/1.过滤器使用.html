@@ -11,6 +11,11 @@
 
         <p>message 的值是: {{message | cai}}  </p>
     </div>
+    <hr>
+
+    <div id="app2">
+        <h4>全局过滤： {{message | cai}}</h4>
+    </div>
     <script src="../lib/vue-2.6.12.js"></script>
     <script>
 
@@ -33,6 +38,13 @@
                     //返回
                     return fisters + slices
                 }
+            }
+        })
+
+        const vm2 = new Vue({
+            el: '#app2',
+            data: {
+                message: 'javascript'
             }
         })
 
