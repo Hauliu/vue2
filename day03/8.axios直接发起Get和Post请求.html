@@ -17,20 +17,16 @@
     document.querySelector('#bthGet').addEventListener('click', async function(){
 
         const {data: res} = await axios.get('http://www.liulongbin.top:3006/api/getbooks')
-        console.log(res.data)
+        params: {
+            id: 1
+        }
+        console.log(res)
     })
 
-    document.querySelector('bthPost').addEventListener('click', function(){
+    document.querySelector('#bthPost').addEventListener('click', async function(){
 
-         axios.post(
-         //请求url    
-         'http://www.liulongbin.top:3006/api/get',
-         //发送post值
-         {
-             name: 'zhangsan',
-             age: 22
-        }
-         )
+        const {data: res} = await axios.post('http://www.liulongbin.top:3006/api/post',{name: 'zs',gender: '女'})
+        console.log(res)
     })
 </script>
 </html>
