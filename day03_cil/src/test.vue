@@ -1,32 +1,7 @@
 <template>
-  <div>
-    <h4>
-      <p :title="time()">{{ name }}</p>
-    </h4>
+  <div id="slider">
+    <!-- windows 中的红框线 -->
+    <!-- <div class="window"><ul class="container" :style=""</div> -->
+    <button>点击跳转</button>
   </div>
 </template>
-
-<style>
-    .test-box {
-        background-color: pink;
-    }
-</style>
-<script>
-export default {
- data() {
-     return{
-         name: 'iiiiiii',
-          
-     }
- },
- methods: {
-     time(){
-         console.log()
-         const time = new Date().toLocaleString()
-         return time
-     }
- },
-};
-</script>
-
-
