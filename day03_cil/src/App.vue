@@ -18,23 +18,23 @@
 
 <script>
 // 1. 导入需要使用的 .vue 组件
-import Left from '@/components/Left.vue'
-import Right from '@/components/Right.vue'
-import Test from '@/components/Test.vue'
+import Left from "@/components/Left.vue";
+import Right from "@/components/Right.vue";
+import Test from "@/components/Test.vue";
 
 export default {
   data() {
     return {
-      flag: true
-    }
+      flag: true,
+    };
   },
   // 2. 注册组件
   components: {
     Left,
     Right,
-    Test
-  }
-}
+    Test,
+  },
+};
 </script>
 
 <style lang="less">
