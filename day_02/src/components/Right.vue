@@ -14,7 +14,7 @@
       <hr />
 
       <button @click="one">7</button>&nbsp;<button @click="one">8</button
-      >&nbsp;<button @click="one">9</button>&nbsp;
+      >&nbsp;<button @click="one">9 </button>&nbsp;
       <hr />
 
       <button></button>
