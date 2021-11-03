@@ -6,7 +6,7 @@
     <div class="box">
       <!-- 渲染 Left 组件和 Right 组件 -->
       <Left :msg="message" :user="userinfo"></Left>
-      <Right></Right>
+      <Right :init="1"></Right>
     </div>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {
     return {
       message: "hello 132 宝宝们",
       userinfo: { name: "wsc", age: 18 },
+      count: 0,
     };
   },
   components: {

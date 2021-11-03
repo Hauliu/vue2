@@ -50,6 +50,5 @@ contract Crowdfunding {
         require(now > enTime, "还未到众筹结束时间");
         require(!closed, "众筹达标，众筹资金已提取");
         require(Target > address(this).balance, "众筹达标，你没法提取佣金");
-        msg.sender.transfer(joined[msg.sender]);
     }
 }
