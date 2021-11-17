@@ -1,6 +1,7 @@
 <template>
   <div class="right-container">
-    <h3 @click="show()">Count的值是: {{ count }}</h3>
+    <h3>Count的值是: {{ count }}</h3>
+    <button type="button" @click="show('count')">点击+1</button>
   </div>
 </template>
 
@@ -15,7 +16,7 @@ export default {
   methods: {
     show() {
       this.count += 1;
-      console.log(this.count);
+      this.$on("numberChanger", this.count);
     },
   },
 };

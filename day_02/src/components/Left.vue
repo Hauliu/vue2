@@ -3,12 +3,28 @@
     <h3>Left 组件</h3>
     <p>msg 的值是 {{ msg }}</p>
     <p>user 的值是 {{ user }}</p>
+    <hr />
+    <button @click="show"></button>
+    <p>{{ message }}</p>
   </div>
 </template>
 
+
 <script>
+import EventBus from "./EventBus.js";
+
 export default {
   props: ["msg", "user"],
+  data() {
+    return {
+      message: "风萧萧兮易水寒",
+    };
+  },
+  methods: {
+    show() {
+      EventBus.$emit("numchange", this.message);
+    },
+  },
 };
 </script>
 

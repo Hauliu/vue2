@@ -1,12 +1,8 @@
 <template>
   <div class="app-container">
-    <h1>App 根组件</h1>
     <hr />
-
-    <div class="box">
-      <!-- 渲染 Left 组件和 Right 组件 -->
-      <Left :msg="message" :user="userinfo"></Left>
-      <Right :init="1"></Right>
+    <div class="app">
+      <AddVue></AddVue>
     </div>
   </div>
 </template>
@@ -14,17 +10,26 @@
 <script>
 import Left from "@/components/Left.vue";
 import Right from "@/components/Right.vue";
+import AddVue from "@/components/addVue.vue";
 export default {
   data() {
     return {
       message: "hello 132 宝宝们",
       userinfo: { name: "wsc", age: 18 },
-      count: 0,
+      getNewCount: 0,
     };
+  },
+  methods: {
+    show(val) {
+      this.getNewCount = val;
+      console.log("事件被触发:", val);
+      return this.getNewCount;
+    },
   },
   components: {
     Left,
     Right,
+    AddVue,
   },
 };
 </script>
@@ -36,5 +41,11 @@ export default {
 }
 .box {
   display: flex;
+}
+.app {
+  padding: 1px 20px 20px;
+  background-color: hsl(0, 17%, 94%);
+  width: 100px;
+  height: 200px;
 }
 </style>
