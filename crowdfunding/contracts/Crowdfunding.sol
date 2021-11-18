@@ -1,6 +1,6 @@
-pragma solidity >=0.4.21 <0.7.0;
+pragma solidity >=0.4.21 <=1.1.1;
 
-contract Crowdfunding {
+contract Crowdfund {
     //创作者
     address public author;
     //参与金额

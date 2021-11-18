@@ -53,22 +53,11 @@ export default {
     };
   },
 
-  //   当前 Vue 组件被创建时回调的 hook 函数
-  async created() {
-    // 初始化 web3 及其账号
-    await this.initWeb3Account();
-    // 初始化合约实例
-    await this.initContract();
-    // 获取合约状态信息
-    await this.getCrowdInfo();
-  },
-
   methods: {
     async initWeb3Account() {},
     async initContract() {},
     async getCrowdInfo() {},
   },
-  created: function () {},
 };
 </script>
 

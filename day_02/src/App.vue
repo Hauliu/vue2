@@ -42,10 +42,4 @@ export default {
 .box {
   display: flex;
 }
-.app {
-  padding: 1px 20px 20px;
-  background-color: hsl(0, 17%, 94%);
-  width: 100px;
-  height: 200px;
-}
 </style>
