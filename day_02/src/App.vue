@@ -1,29 +1,30 @@
 <template>
-  <div class="app-container">
-    <div v-if="mask" class="offline-mask">
-      <h2 class="offline-mask-title">{{ offlineTitle }}</h2>
-    </div>
-    <hr />
-    <!-- <div class="app">
-      <AddVue></AddVue>
+  <div id="app">
+    <!-- <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
     </div> -->
+    <!-- <router-view /> -->
+    <div class="app-container">
+      <div v-if="mask" class="offline-mask">
+        <h2 class="offline-mask-title">{{ offlineTitle }}</h2>
+      </div>
+    </div>
     <div>
-      <XiaoMi></XiaoMi>
+      <router-view></router-view>
     </div>
   </div>
 </template>
-
 <script>
 import Left from "@/components/Left.vue";
 import Right from "@/components/Right.vue";
 import AddVue from "@/components/addVue.vue";
-import XiaoMi from "@/components/xiaomi.vue";
+
 export default {
   components: {
     Left,
     Right,
     AddVue,
-    XiaoMi,
   },
   name: "offlineHandler",
   props: {
@@ -67,8 +68,27 @@ export default {
   },
 };
 </script>
-
 <style lang="less">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
 .app-container {
   padding: 1px 20px 20px;
   background-color: #efefef;
