@@ -7,9 +7,12 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import VueRouter from 'vue-router';
 import router from './router';
-import index from './view/index.vue';
-import login from './view/login.vue';
 
+import 'vx-easyui/dist/themes/default/easyui.css';
+import 'vx-easyui/dist/themes/icon.css';
+import 'vx-easyui/dist/themes/vue.css';
+import EasyUI from 'vx-easyui';
+Vue.use(EasyUI);
 Vue.use(VueRouter)
 Vue.use(Vant);
 Vue.use(ElementUI)

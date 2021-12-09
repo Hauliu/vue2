@@ -1,5 +1,6 @@
 <template>
   <div class="wrap" id="wrap">
+    <div class="geju"></div>
     <div class="logGet">
       <!-- 头部提示信息 -->
       <div class="logD logDtip">
@@ -13,19 +14,24 @@
           placeholder="请输入用户名"
           maxlength="12"
           minlength="10"
+          v-model="userName"
         />
       </div>
       <div class="lgD">
         <!-- <img src="../assets/password.gif" alt="" width="20px" height="20px" /> -->
         <div class="oo">
           <form>
-            <input type="password" placeholder="请输入密码" v-model="value" />
+            <input
+              type="password"
+              placeholder="请输入密码"
+              v-model="password"
+            />
             <a style="font-size: 25px; color: red">*</a>
           </form>
         </div>
       </div>
       <div class="logC">
-        <a><button @click="login">登 录</button></a>
+        <a><button @click="login" v-on:keyup.enter="submit">登 录</button></a>
       </div>
     </div>
     <!-- 定义一个提示框，显示最新的官网消息 -->
@@ -36,18 +42,24 @@
 export default {
   data() {
     return {
-      passwordLS: "*",
-      value: "",
+      userName: "",
+      password: "",
     };
   },
   methods: {
     login() {
       console.log("::" + this.value);
-      if (this.value === "") {
-        window.alert("请输入密码");
+      if (this.userName !== "") {
+        if (this.password === "") {
+          window.alert("请输入密码");
+        } else {
+          // 假设登陆成功，则跳转到 index 组件
+          this.$router.push("/index.vue");
+          console.log(this.$router.push("./index.vue"));
+        }
+      } else {
+        window.alert("请输入用户名");
       }
-      // 假设登陆成功，则跳转到 index 组件
-      this.$refs.replace("../view/index.vue");
     },
   },
 };
@@ -88,8 +100,8 @@ body {
   width: 368px;
   position: absolute;
   background-color: #ffffff;
-  top: 100px;
-  right: 15%;
+  top: 180px;
+  right: 40%;
 }
 
 .logC a button {
