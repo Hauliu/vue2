@@ -10,7 +10,21 @@
       <a class="login" @click="login">退出登录</a>
       <div class="text_color">
         <a rel="nofollow" @click="open_shangcheng">小米商城</a>
-        <span class="sep">|</span>
+        <span class="sep"> | </span>
+        <a rel="nofollow" @click="open_shangcheng">MIUI</a>
+        <span class="sep"> | </span>
+        <a rel="nofollow" @click="open_shangcheng">loT</a>
+        <span class="sep"> | </span>
+        <a rel="nofollow" @click="open_shangcheng">云服务</a>
+        <span class="sep"> | </span>
+        <a rel="nofollow" @click="open_shangcheng">天星数科</a>
+        <span class="sep"> | </span>
+        <a rel="nofollow" @click="open_shangcheng">有品</a>
+        <span class="sep"> | </span>
+        <a rel="nofollow" @click="open_shangcheng">小爱开放平台</a>
+        <span class="sep"> | </span>
+        <a rel="nofollow" @click="open_shangcheng">企业团购</a>
+        <span class="sep"> | </span>
       </div>
     </div>
     <div class="container">
@@ -60,12 +74,14 @@ export default {
 </script>
 
 <style lang="less">
-.text_color a:hover {
-  background-color: #b0b0b0;
-  color: aqua;
+.text_color {
+  color: rgb(115, 141, 141);
   margin-left: -60%;
   line-height: 40px;
   display: inline-block;
+}
+.text_color a:hover {
+  color: #ffffff;
 }
 .container {
   width: 1226px;
