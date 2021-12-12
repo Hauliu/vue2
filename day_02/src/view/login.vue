@@ -33,6 +33,10 @@
       <div class="logC">
         <a><button @click="login" v-on:keyup.enter="submit">登 录</button></a>
       </div>
+      <div>
+        <a class="register_an_account">注册账户&nbsp; &nbsp;</a>
+        <a class="register_an_account">忘记密码</a>
+      </div>
     </div>
     <!-- 定义一个提示框，显示最新的官网消息 -->
   </div>
@@ -184,5 +188,12 @@ body {
   height: 60px;
   width: 40%;
   text-align: center;
+}
+.register_an_account {
+  color: #0d0d0ebe;
+  margin-left: 10px;
+}
+.register_an_account:hover {
+  color: blue;
 }
 </style>

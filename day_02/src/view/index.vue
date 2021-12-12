@@ -8,33 +8,50 @@
         alt=""
       />
       <a class="login" @click="login">退出登录</a>
-      <div class="text_color">
-        <a rel="nofollow" @click="open_shangcheng">小米商城</a>
-        <span class="sep"> | </span>
-        <a rel="nofollow" @click="open_shangcheng">MIUI</a>
-        <span class="sep"> | </span>
-        <a rel="nofollow" @click="open_shangcheng">loT</a>
-        <span class="sep"> | </span>
-        <a rel="nofollow" @click="open_shangcheng">云服务</a>
-        <span class="sep"> | </span>
-        <a rel="nofollow" @click="open_shangcheng">天星数科</a>
-        <span class="sep"> | </span>
-        <a rel="nofollow" @click="open_shangcheng">有品</a>
-        <span class="sep"> | </span>
-        <a rel="nofollow" @click="open_shangcheng">小爱开放平台</a>
-        <span class="sep"> | </span>
-        <a rel="nofollow" @click="open_shangcheng">企业团购</a>
-        <span class="sep"> | </span>
+      <div class="a_href">
+        <div class="one_href">
+          <a rel="nofollow" @click="open_shangcheng"
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;小米商城</a
+          >
+          <span class="sep">&nbsp; | &nbsp; </span>
+          <a rel="nofollow" @click="open_MIUI">MIUI</a>
+          <span class="sep">&nbsp; | &nbsp; </span>
+          <a rel="nofollow">IoT</a>
+          <span class="sep">&nbsp; | &nbsp; </span>
+          <a rel="nofollow">云服务</a>
+          <span class="sep">&nbsp; | </span>
+          <a rel="nofollow">天星数科</a>
+          <span class="sep">&nbsp; | &nbsp; </span>
+          <a rel="nofollow">有品</a>
+          <span class="sep">&nbsp; | &nbsp; </span>
+          <a rel="nofollow">小爱开放平台</a>
+          <span class="sep">&nbsp; | &nbsp; </span>
+          <a rel="nofollow">企业团购</a>
+          <span class="sep">&nbsp; | &nbsp; </span>
+          <a rel="nofollow">资质证照</a>
+          <span class="sep">&nbsp; | &nbsp; </span>
+          <a rel="nofollow">协议规则</a>
+          <span class="sep">&nbsp; | &nbsp; </span>
+          <a rel="nofollow">智能生活</a>
+          <span class="sep" target="_blank">&nbsp; | &nbsp; </span>
+        </div>
+        <div class="tow_href">
+          <a rel="npfollow" class="el-icon-shopping-cart-full"
+            >&nbsp; 购物车 &nbsp;&nbsp;</a
+          >
+        </div>
       </div>
     </div>
     <div class="container">
-      <img
-        src="../assets/logo-mi2.png"
-        style="margin-left: -94%; margin-top: 10px; height: 67px; width: 69px"
-        alt=""
-        title="小米首页"
-        @click="open_xiaomiIndex"
-      />
+      <div>
+        <img
+          src="../assets/logo-mi2.png"
+          style="margin-left: -94%; margin-top: 10px; height: 67px; width: 69px"
+          alt=""
+          title="小米首页"
+          @click="open_xiaomiIndex"
+        />
+      </div>
     </div>
     <div class="header-nav"></div>
   </div>
@@ -46,6 +63,9 @@ export default {
     return {};
   },
   methods: {
+    open_MIUI() {
+      open("https://home.miui.com/");
+    },
     login() {
       //点击退出登录，页面弹出框确认是是否删除
       this.$confirm("是否退出当前登录", "提示", {
@@ -92,15 +112,20 @@ export default {
   float: left;
   width: 850px;
 }
-.login {
-  float: right;
+.login:hover {
   color: cornsilk;
 }
-.imgTouXiang {
-  width: 30px;
-  height: 39px;
+.login {
+  color: rgb(115, 141, 141);
+  line-height: 40px;
+  float: right;
+}
 
+.imgTouXiang {
+  width: 32px;
+  height: 30px;
   border-radius: 100px;
+  margin-top: 5px;
 }
 .taitou {
   background-color: black;
@@ -110,5 +135,43 @@ export default {
   font-size: 12px;
   color: #b0b0b0;
   background: #333;
+  top: -21px;
+}
+.one_href {
+  margin-right: 20px;
+}
+.one_href a {
+  float: left;
+  line-height: 40px;
+}
+.one_href span {
+  float: left;
+  line-height: 40px;
+}
+
+.one_href a:hover {
+  float: left;
+  line-height: 40px;
+  color: #ffffff;
+}
+.tow_href a:hover {
+  line-height: 40px;
+  color: #ffffff;
+}
+.tow_href a span {
+  line-height: 40px;
+}
+.sep {
+  margin: 0 0.3em;
+  color: #424242;
+}
+.tow_href a:hover {
+  color: #ffffff;
+  line-height: 40px;
+}
+.tow_href {
+  line-height: 40px;
+  float: right;
+  font-size: 14px;
 }
 </style>
