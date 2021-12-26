@@ -52,14 +52,14 @@ export default {
   },
   methods: {
     login() {
-      console.log("::" + this.value);
+      // console.log("::" + this.value);
       if (this.userName !== "") {
         if (this.password === "") {
           window.alert("请输入密码");
         } else {
           // 假设登陆成功，则跳转到 index 组件
-          this.$router.push("/index.vue");
-          console.log(this.$router.push("./index.vue"));
+          this.$router.push("./index.vue");
+          // console.log(this.$router.push("/index.vue"));
         }
       } else {
         window.alert("请输入用户名");

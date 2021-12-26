@@ -35,10 +35,49 @@
           <a rel="nofollow">智能生活</a>
           <span class="sep" target="_blank">&nbsp; | &nbsp; </span>
         </div>
-        <div class="tow_href">
+        <!-- <div class="tow_href">
           <a rel="npfollow" class="el-icon-shopping-cart-full"
             >&nbsp; 购物车 &nbsp;&nbsp;</a
           >
+          <div class="cart-menu">
+            menu-content
+            <div class="menu-content">
+              <div class="loading"></div>
+            </div>
+          </div>
+          <ul class="cart-list hide"></ul>
+          <div class="cart-total clearfix hide"></div>
+          <div class="msg msg-error hide"></div>
+          <div class="msg msg-error hide">购物车还没有商品，赶紧选购吧！</div>
+        </div> -->
+        <div id="J_miniCartTrigger" class="topbar-cart">
+          <a
+            data-spm="navigation.to_cart_navigation_bar.1"
+            rel="nofollow"
+            id="J_miniCartBtn"
+            href="//www.mi.com/buy/cart"
+            class="cart-mini"
+            data-params='""'
+            ><em class="iconfont-cart"></em
+            ><em class="iconfont-cart-full hide"></em>购物车<span
+              class="cart-mini-num J_cartNum"
+              >（0）</span
+            ></a
+          >
+          <div id="J_miniCartMenu" class="cart-menu" style="height: 0px">
+            <div class="menu-content">
+              <div class="loading"><div class="loader"></div></div>
+              <ul id="J_miniCartList" class="cart-list hide"></ul>
+              <div
+                id="J_miniCartListTotal"
+                class="cart-total clearfix hide"
+              ></div>
+              <div class="msg msg-error hide"></div>
+              <div class="msg msg-empty hide">
+                购物车中还没有商品，赶紧选购吧！
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -53,7 +92,6 @@
         />
       </div>
     </div>
-    <div class="header-nav"></div>
   </div>
 </template>
 
@@ -173,5 +211,18 @@ export default {
   line-height: 40px;
   float: right;
   font-size: 14px;
+}
+.hide {
+  display: none !important;
+}
+.topbar-cart {
+  position: relative;
+  float: right;
+  width: 120px;
+  height: 40px;
+  margin-left: 15px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  font-size: 12px;
 }
 </style>
