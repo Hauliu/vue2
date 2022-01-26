@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>尝试获取百度data</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="dianji">点击获取百度data信息</button>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            dianji() {
+                const rest = axios({
+                    method: 'get',
+                    url: "https://www.baidu.com/s?ie=UTF-8&wd=%E9%82%93%E8%B6%85%E8%A1%A8%E6%83%85%E5%8C%85",
+                    data: {
+                        linkInfo: [0]
+                    }
+                })
+                console.log(rest)
+            }
+
+        }
+    })
+</script>
+
+</html>

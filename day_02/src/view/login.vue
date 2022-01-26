@@ -22,11 +22,12 @@
         <div class="oo">
           <form>
             <input
+              class="password"
               type="password"
               placeholder="请输入密码"
               v-model="password"
             />
-            <a style="font-size: 25px; color: red">*</a>
+            <a class="tishi" style="font-size: 25px; color: red">*</a>
           </form>
         </div>
       </div>
@@ -46,8 +47,8 @@
 export default {
   data() {
     return {
-      userName: "",
-      password: "",
+      userName: "111",
+      password: "111",
     };
   },
   methods: {
@@ -58,8 +59,11 @@ export default {
           window.alert("请输入密码");
         } else {
           // 假设登陆成功，则跳转到 index 组件
-          this.$router.push("./index.vue");
-          // console.log(this.$router.push("/index.vue"));
+          this.$router.push({ name: "index" });
+          this.$message({
+            type: "success",
+            message: "登录成功",
+          });
         }
       } else {
         window.alert("请输入用户名");
@@ -82,6 +86,18 @@ body {
 * {
   margin: 0;
   padding: 0;
+}
+.tishi {
+  font-size: 25px;
+  color: red;
+  position: relative;
+  left: 8px;
+  bottom: -9px;
+}
+.password {
+  // 密码
+  position: relative;
+  left: 4px;
 }
 
 #wrap {

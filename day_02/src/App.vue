@@ -5,11 +5,11 @@
       <router-link to="/about">About</router-link>
     </div> -->
     <!-- <router-view /> -->
-    <div class="app-container">
+    <!-- <div class="app-container">
       <div v-if="mask" class="offline-mask">
         <h2 class="offline-mask-title">{{ offlineTitle }}</h2>
       </div>
-    </div>
+    </div> -->
     <div>
       <router-view></router-view>
     </div>
@@ -26,46 +26,46 @@ export default {
     Right,
     AddVue,
   },
-  name: "offlineHandler",
-  props: {
-    offlineTitle: {
-      type: String,
-      default: "网络已断开，请检查网络",
-    },
-    onlineTitle: {
-      type: String,
-      default: "网络已连接",
-    },
-  },
+  // name: "offlineHandler",
+  // props: {
+  //   offlineTitle: {
+  //     type: String,
+  //     default: "网络已断开，请检查网络",
+  //   },
+  //   onlineTitle: {
+  //     type: String,
+  //     default: "网络已连接",
+  //   },
+  // },
   data() {
     return {
-      mask: false,
+      // mask: false,
     };
   },
-  mounted() {
-    window.addEventListener("offline", this.eventHandler);
-    window.addEventListener("online", this.eventHandler);
-  },
-  beforeDestroy() {
-    window.removeEventListener("offline", this.eventHandler);
-    window.removeEventListener("online", this.eventHandler);
-  },
-  methods: {
-    eventHandler(event) {
-      let { offlineTitle, onlineTitle } = this;
-      const type = event.type === "offline" ? "error" : "success";
-      const title = type === "error" ? offlineTitle : onlineTitle;
-      window.alert(title);
-      // element 的提示， UI不同这里换下
-      this.$message({
-        message: title,
-        type: type,
-      });
-      setTimeout(() => {
-        this.mask = event.type === "offline";
-      }, 1500);
-    },
-  },
+  // mounted() {
+  //   window.addEventListener("offline", this.eventHandler);
+  //   window.addEventListener("online", this.eventHandler);
+  // },
+  // beforeDestroy() {
+  //   window.removeEventListener("offline", this.eventHandler);
+  //   window.removeEventListener("online", this.eventHandler);
+  // },
+  // methods: {
+  //   eventHandler(event) {
+  //     let { offlineTitle, onlineTitle } = this;
+  //     const type = event.type === "offline" ? "error" : "success";
+  //     const title = type === "error" ? offlineTitle : onlineTitle;
+  //     window.alert(title);
+  //     // element 的提示， UI不同这里换下
+  //     this.$message({
+  //       message: title,
+  //       type: type,
+  //     });
+  //     setTimeout(() => {
+  //       this.mask = event.type === "offline";
+  //     }, 1500);
+  //   },
+  // },
 };
 </script>
 <style lang="less">

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="buju">
     <div class="taitou">
       <img
         class="imgTouXiang"
@@ -10,9 +10,7 @@
       <a class="login" @click="login">退出登录</a>
       <div class="a_href">
         <div class="one_href">
-          <a rel="nofollow" @click="open_shangcheng"
-            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;小米商城</a
-          >
+          <a rel="nofollow" @click="open_shangcheng">小米商城</a>
           <span class="sep">&nbsp; | &nbsp; </span>
           <a rel="nofollow" @click="open_MIUI">MIUI</a>
           <span class="sep">&nbsp; | &nbsp; </span>
@@ -33,7 +31,10 @@
           <a rel="nofollow">协议规则</a>
           <span class="sep">&nbsp; | &nbsp; </span>
           <a rel="nofollow">智能生活</a>
+
           <span class="sep" target="_blank">&nbsp; | &nbsp; </span>
+          <span class="sep"></span>
+          <a @click="ElementTypeVueDemo">ElementTypeVueDemo</a>
         </div>
         <!-- <div class="tow_href">
           <a rel="npfollow" class="el-icon-shopping-cart-full"
@@ -92,6 +93,9 @@
         />
       </div>
     </div>
+    <div class="one_cls">
+      <a @click="one">one</a>
+    </div>
   </div>
 </template>
 
@@ -115,7 +119,8 @@ export default {
           type: "success",
           message: "退出成功",
         });
-        this.$router.push("/");
+        console.log("进入页面");
+        this.$router.push({ name: "login" });
         //点击退出，返回登录页面
       });
     },
@@ -127,11 +132,24 @@ export default {
       //点击打开小米首页
       window, open("https://www.mi.com/index.html");
     },
+    one() {
+      console.log("打开one页面");
+      // open("../components/tow.vue");
+      //this.$router.push("/loginTow");
+    },
+    ElementTypeVueDemo() {
+      console.log("点击进入");
+      this.$router.push({ name: "ElementTypeVueDemo" });
+    },
   },
 };
 </script>
 
 <style lang="less">
+#buju {
+  position: relative;
+  top: auto;
+}
 .text_color {
   color: rgb(115, 141, 141);
   margin-left: -60%;
@@ -173,10 +191,12 @@ export default {
   font-size: 12px;
   color: #b0b0b0;
   background: #333;
-  top: -21px;
+  top: auto;
 }
 .one_href {
   margin-right: 20px;
+  position: absolute;
+  left: 210px;
 }
 .one_href a {
   float: left;
@@ -224,5 +244,16 @@ export default {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   font-size: 12px;
+}
+.one_cls a {
+  position: relative;
+  left: 10%;
+  border-left: thin hidden #ffffff;
+  width: 10px;
+  height: 10px;
+  background-size: 10px, 20px;
+}
+.one_cls a:hover {
+  color: red;
 }
 </style>
