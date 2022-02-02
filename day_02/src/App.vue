@@ -11,21 +11,13 @@
       </div>
     </div> -->
     <div>
-      <router-view></router-view>
+      <router-view :key="this.$route.path"></router-view>
     </div>
   </div>
 </template>
 <script>
-import Left from "@/components/Left.vue";
-import Right from "@/components/Right.vue";
-import AddVue from "@/components/addVue.vue";
-
 export default {
-  components: {
-    Left,
-    Right,
-    AddVue,
-  },
+  components: {},
   // name: "offlineHandler",
   // props: {
   //   offlineTitle: {

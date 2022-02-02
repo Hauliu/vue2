@@ -13,29 +13,20 @@ export default new Router({
     {
       path: '/',
       name: 'login',
-      component: () => import('../view/login.vue')
+      component: () => import('@/view/login.vue')
     },
     {
       path: '/index',
       name: 'index',
-      component: () => import('../view/index.vue'),
-      children: [//二级路由
-        {
-          path: '/one',
-          name: 'one',
-          component: () => import('@/components/one.vue')
-        },
-        {
-          path: '/two',
-          name: 'two',
-          component: () => import('@/components/two.vue')
-        },
-        {
-          path: '/ElementTypeVueDemo',
-          name: 'ElementTypeVueDemo',
-          component: () => import('../components/ElementTypeVueDemo.vue')
-        }
-      ]
+      component: () => import('@/view/index.vue'),
+    },
+    {
+      path: '/ElementTypeVueDemo',
+      name: 'ElementTypeVueDemo',
+      component: () => import('@/components/ElementTypeVueDemo.vue')
     }
+
+
   ]
+
 })

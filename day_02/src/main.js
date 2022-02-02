@@ -8,6 +8,10 @@ import 'vant/lib/index.css';
 import VueRouter from 'vue-router';
 import router from './router';
 
+//轻量级页面组件
+
+
+
 import 'vx-easyui/dist/themes/default/easyui.css';
 import 'vx-easyui/dist/themes/icon.css';
 import 'vx-easyui/dist/themes/vue.css';
@@ -19,6 +23,7 @@ Vue.use(ElementUI)
 Vue.use(VueRouter)
 // ElementUI.Message.error('…………')
 Vue.config.productionTip = false
+
 
 new Vue({
   router,

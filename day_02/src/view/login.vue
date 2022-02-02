@@ -75,7 +75,7 @@ export default {
 
 <style lang="less">
 body {
-  background-image: url("../assets/meinv.jpg");
+  // background-image: url("../assets/meinv.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
