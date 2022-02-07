@@ -11,7 +11,6 @@
       @close="handelColse"
       :collapse="isCollapse"
     >
-    
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
@@ -20,7 +19,7 @@
         <!-- ElementTypeVueDemo 组件 -->
         <el-menu-item-group>
           <span slot="title">组件一</span>
-          <el-menu-item index="1-1" @click="ElementTypeVueDemo"
+          <el-menu-item index="1-1" @click="ElementTypeVueDemo" @open="1"
             >ElementTypeVueDemo</el-menu-item
           >
         </el-menu-item-group>

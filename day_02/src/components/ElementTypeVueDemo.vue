@@ -1,20 +1,304 @@
 <template>
   <div>
-    <div class="returnGo">
-      <button @click="returnGo">返回上一级</button>
+    <div>
+      <el-tabs v-model="activeName" @tab-click="handleClick" type="border-card">
+        <el-tab-pane label="用户管理" name="first">
+          <div class="to_one">
+            姓名<el-input
+              class="input_width"
+              placeholder="请输入姓名"
+              v-model="input"
+              clearable
+            >
+            </el-input>
+            年龄<el-input
+              class="input_width"
+              placeholder="请输入年龄"
+              v-model="age"
+              clearable
+            >
+            </el-input>
+            时间
+            <el-time-select
+              placeholder="起始时间"
+              v-model="startTime"
+              :picker-options="{
+                start: '08:30',
+                step: '00:15',
+                end: '18:30',
+              }"
+            >
+            </el-time-select>
+            <el-time-select
+              placeholder="结束时间"
+              v-model="endTime"
+              :picker-options="{
+                start: '08:30',
+                step: '00:15',
+                end: '18:30',
+                minTime: startTime,
+              }"
+            >
+            </el-time-select>
+            <el-button>查询</el-button>
+            <el-button @click="initAll">重置</el-button>
+            <el-divider>分割线-下面是表格</el-divider>
+          </div>
+          <div>
+            <el-table
+              :data="(index, tableData)"
+              border
+              style="width: 100%"
+              height="500px"
+            >
+              <el-table-column label="序号" width="50px"> </el-table-column>
+              <el-table-column
+                prop="data"
+                label="姓名"
+                width="180px"
+              ></el-table-column>
+              <el-table-column
+                prop="age"
+                label="年龄"
+                width="180px"
+              ></el-table-column>
+              <el-table-column
+                prop="startTime"
+                label="开始时间"
+                width="180px"
+              ></el-table-column>
+              <el-table-column
+                prop="endTime"
+                label="结束时间"
+                width="180px"
+              ></el-table-column>
+              <el-table-column
+                prop="caozuoName"
+                label="操作人"
+                width="180px"
+              ></el-table-column>
+              <el-table-column
+                prop="shengfen"
+                label="省份"
+                width="180px"
+              ></el-table-column>
+              <el-table-column
+                prop="shijidiqu"
+                label="市级地区"
+                width="180px"
+              ></el-table-column>
+              <el-table-column
+                prop="xianji"
+                label="县级地区"
+                width="180px"
+              ></el-table-column>
+              <el-table-column
+                prop="xiangji"
+                label="乡级地区"
+                width="180px"
+              ></el-table-column>
+              <el-table-column fixed="right" label="操作" width="100">
+                <template slot-scope="scope">
+                  <el-button
+                    @click="handleClick(scope.row)"
+                    type="text"
+                    size="small"
+                    >查看</el-button
+                  >
+                  <el-button type="text" size="small">编辑</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+            <div class="block">
+              <span class="demonstration">页数较少时的效果</span>
+              <el-pagination layout="prev, pager, next" :total="pagination_num">
+              </el-pagination>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="配置管理页面" name="second"
+          >配置管理页面</el-tab-pane
+        >
+        <el-tab-pane label="角色管理页面" name="third"
+          >角色管理页面</el-tab-pane
+        >
+        <el-tab-pane label="定时任务补偿" name="fourth"
+          >定时任务补偿</el-tab-pane
+        >
+      </el-tabs>
     </div>
-    <input type="text" style="postion: fixed" />
+    <div class="returnGo">
+      <el-button
+        @click="returnGo"
+        class="el-icon-caret-left colors"
+        circle
+      ></el-button>
+      <el-button class="el-icon-caret-right colors" circle></el-button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return {
+      activeName: "first",
+      input: "",
+      startTime: "",
+      endTime: "",
+      age: "",
+      pagination_num: 30,
+      tableData: [
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+        {
+          data: "小明",
+          age: "23",
+          startTime: "18:15",
+          endTime: "23:55",
+          caozuoName: "admin",
+          shengfen: "江西",
+          shijidiqu: "萍乡",
+          xianji: "莲花",
+          xiangji: "下垅",
+        },
+      ],
+    };
   },
   methods: {
+    //点击重置按钮，所有输入为空
+    initAll() {
+      const that = this;
+      (that.input = ""),
+        (that.startTime = ""),
+        (that.endTime = ""),
+        (that.age = "");
+    },
     returnGo() {
-      this.$router.push("");
+      this.$router.push({ name: "index" });
+    },
+    handleClick(tab, event) {
+      console.log(tab, event);
     },
   },
 };
@@ -22,7 +306,33 @@ export default {
 
 <style lang="less">
 .returnGo {
-  position: fixed;
+  position: absolute;
+  display: flex;
   right: 50px;
+  top: 0px;
+}
+.div_view {
+  width: 50px;
+  height: 100%;
+  background-color: red;
+}
+
+.colors:hover {
+  color: aqua;
+}
+
+.dataClass {
+  position: absolute;
+  left: 65%;
+  top: 0%;
+}
+.input_width {
+  width: 10%;
+}
+.to_one {
+  position: relative;
+  right: auto;
+  width: 100%;
+  height: 100%;
 }
 </style>
