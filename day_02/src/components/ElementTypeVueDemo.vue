@@ -111,7 +111,15 @@
             </el-table>
             <div class="block">
               <span class="demonstration">页数较少时的效果</span>
-              <el-pagination layout="prev, pager, next" :total="pagination_num">
+              <el-pagination
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="pagination_num"
+                @size-chang="handerSizeChang"
+                @curent-chang="handerCrrentChang"
+                :current-page="currentPage"
+                :page-sizes="[10, 20, 30, 40, 50]"
+                :page-size="10"
+              >
               </el-pagination>
             </div>
           </div>
@@ -148,6 +156,8 @@ export default {
       endTime: "",
       age: "",
       pagination_num: 30,
+      // 当前所在页
+      currentPage: 1,
       tableData: [
         {
           data: "小明",
@@ -293,6 +303,13 @@ export default {
         (that.startTime = ""),
         (that.endTime = ""),
         (that.age = "");
+    },
+    //每页数量最大设置为10
+    handerSizeChang(val) {
+      console.log(`每页 ${val} 条 `);
+    },
+    handerCrrentChang(val) {
+      consolo.log(`当前页 ${val} 条`);
     },
     returnGo() {
       this.$router.push({ name: "index" });

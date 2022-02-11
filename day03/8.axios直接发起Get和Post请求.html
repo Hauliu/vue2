@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <button id="bthGet">Get</button>
     <button id="bthPost">POST</button>
-    
+
 </body>
 
 <script src="../lib/axios.js"></script>
 <script>
-    document.querySelector('#bthGet').addEventListener('click', async function(){
+    document.querySelector('#bthGet').addEventListener('click', async function () {
 
-        const {data: res} = await axios.get('http://www.liulongbin.top:3006/api/getbooks')
+        const { data: res } = await axios.get('http://www.liulongbin.top:3006/api/getbooks')
         params: {
-            id: 1
+            id: 703
         }
         console.log(res)
     })
 
-    document.querySelector('#bthPost').addEventListener('click', async function(){
+    document.querySelector('#bthPost').addEventListener('click', async function () {
 
-        const {data: res} = await axios.post('http://www.liulongbin.top:3006/api/post',{name: 'zs',gender: '女'})
+        const { data: res } = await axios.post('http://www.liulongbin.top:3006/api/post', { name: 'zs', gender: '女' })
         console.log(res)
     })
 </script>
+
 </html>
