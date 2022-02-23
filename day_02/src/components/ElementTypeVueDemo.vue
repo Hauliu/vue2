@@ -45,13 +45,28 @@
             <el-divider>分割线-下面是表格</el-divider>
           </div>
           <div>
+            <el-card>
+              <el-switch
+                v-model="switgh_button"
+                :active-text="active_text"
+                :inactive-text="inactive_text"
+                @change="gaibianSwicth"
+              >
+              </el-switch>
+              <el-button type="primary" @click="switchs" :disabled="buttons">
+                jj</el-button
+              >
+            </el-card>
+          </div>
+          <div>
             <el-table
-              :data="(index, tableData)"
+              :data="tableData"
               border
               style="width: 100%"
               height="500px"
             >
-              <el-table-column label="序号" width="50px"> </el-table-column>
+              <el-table-column label="序号" width="50px" type="index">
+              </el-table-column>
               <el-table-column
                 prop="data"
                 label="姓名"
@@ -110,7 +125,6 @@
               </el-table-column>
             </el-table>
             <div class="block">
-              <span class="demonstration">页数较少时的效果</span>
               <el-pagination
                 layout="total, sizes, prev, pager, next, jumper"
                 :total="pagination_num"
@@ -119,6 +133,7 @@
                 :current-page="currentPage"
                 :page-sizes="[10, 20, 30, 40, 50]"
                 :page-size="10"
+                length="10"
               >
               </el-pagination>
             </div>
@@ -158,6 +173,11 @@ export default {
       pagination_num: 30,
       // 当前所在页
       currentPage: 1,
+      switgh_button: true,
+      //所有button按钮状态
+      buttons: false,
+      active_text: "开启",
+      inactive_text: "禁用",
       tableData: [
         {
           data: "小明",
@@ -296,6 +316,19 @@ export default {
     };
   },
   methods: {
+    //禁用所有按钮
+    gaibianSwicth() {
+      if (this.buttons === false) {
+        this.buttons = true;
+        console.log(this.buttons);
+      } else {
+        this.buttons = false;
+      }
+    },
+    //查看按钮状态
+    switchs() {
+      console.log("目前按钮状态为:" + this.buttons);
+    },
     //点击重置按钮，所有输入为空
     initAll() {
       const that = this;
