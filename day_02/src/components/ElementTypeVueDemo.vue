@@ -53,9 +53,38 @@
                 @change="gaibianSwicth"
               >
               </el-switch>
-              <el-button type="primary" @click="switchs" :disabled="buttons">
-                jj</el-button
+              <el-button
+                type="primary"
+                class="creates"
+                @click="switchs"
+                :disabled="buttons"
               >
+                新增</el-button
+              >
+              <el-button
+                type="primary"
+                class="creates"
+                @click="switchs"
+                :disabled="buttons"
+              >
+                编辑</el-button
+              >
+              <el-button
+                type="primary"
+                class="creates"
+                @click="switchs"
+                :disabled="buttons"
+              >
+                导入</el-button
+              >
+              <el-button
+                type="primary"
+                class="creates"
+                @click="switchs"
+                :disabled="buttons"
+              >
+                导出
+              </el-button>
             </el-card>
           </div>
           <div>
@@ -63,7 +92,8 @@
               :data="tableData"
               border
               style="width: 100%"
-              height="500px"
+              height="650px"
+              v-show="nubers"
             >
               <el-table-column label="序号" width="50px" type="index">
               </el-table-column>
@@ -178,144 +208,11 @@ export default {
       buttons: false,
       active_text: "开启",
       inactive_text: "禁用",
-      tableData: [
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-        {
-          data: "小明",
-          age: "23",
-          startTime: "18:15",
-          endTime: "23:55",
-          caozuoName: "admin",
-          shengfen: "江西",
-          shijidiqu: "萍乡",
-          xianji: "莲花",
-          xiangji: "下垅",
-        },
-      ],
+      tableData: [],
     };
   },
   methods: {
+    nubers() {},
     //禁用所有按钮
     gaibianSwicth() {
       if (this.buttons === false) {
@@ -384,5 +281,13 @@ export default {
   right: auto;
   width: 100%;
   height: 100%;
+}
+.creates {
+  position: relative;
+  left: 10px;
+}
+.el-card__body {
+  padding: 20px;
+  float: left;
 }
 </style>
