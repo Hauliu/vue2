@@ -1,0 +1,38 @@
+
+.app{
+    position: relative;
+    left: 10px;
+}
+.addBtn{
+    position: relative;
+    bottom: -37px;
+    left: -75px;
+}
+.remove{
+    position: relative;
+    bottom: -37px;
+    left: -75px;
+}
+.weizhitiaozheng{
+    position: relative;
+    top: 30px;
+    left: 5px;
+}
+.addBtn{
+    color: #f6f6f6;
+    background-color: black;
+}
+.addBtn:hover{
+    margin: 1px 1px 1px 1px;
+    color: #f6f6f6;
+    background-color: black;
+}
+.remove{
+    color: #f6f6f6;
+    background-color: black;
+}
+.remove:hover{
+    margin: 1px 1px 1px 1px;
+    color: #f6f6f6;
+    background-color: black;
+}
