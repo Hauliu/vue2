@@ -24,7 +24,12 @@ export default new Router({
       path: '/ElementTypeVueDemo',
       name: 'ElementTypeVueDemo',
       component: () => import('@/components/ElementTypeVueDemo.vue')
-    }
+    },
+    {
+      path: '/add',
+      name: 'add',
+      component: () => import('@/components/add.vue')
+    },
 
 
   ]
