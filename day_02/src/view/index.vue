@@ -22,6 +22,7 @@
           <el-menu-item index="1-1" @click="ElementTypeVueDemo" @open="1"
             >ElementTypeVueDemo</el-menu-item
           >
+          <el-menu-item index="1-2" @click="add" @open="2">add</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-menu-item index="2">
@@ -59,6 +60,10 @@ export default {
     ElementTypeVueDemo() {
       console.log("点击跳转页面");
       this.$router.push({ name: "ElementTypeVueDemo" });
+    },
+    add() {
+      console.log("点击跳转页面");
+      this.$router.push({ name: "add" });
     },
   },
 };
