@@ -54,9 +54,10 @@
               >
               </el-switch>
               <el-button
+                id="create_bth"
                 type="primary"
                 class="creates"
-                @click="switchs"
+                @click="create_bth"
                 :disabled="buttons"
               >
                 新增</el-button
@@ -64,7 +65,7 @@
               <el-button
                 type="primary"
                 class="creates"
-                @click="switchs"
+                @click="update_bth"
                 :disabled="buttons"
               >
                 编辑</el-button
@@ -72,7 +73,7 @@
               <el-button
                 type="primary"
                 class="creates"
-                @click="switchs"
+                @click="import_btn"
                 :disabled="buttons"
               >
                 导入</el-button
@@ -80,7 +81,7 @@
               <el-button
                 type="primary"
                 class="creates"
-                @click="switchs"
+                @click="ex_btn"
                 :disabled="buttons"
               >
                 导出
@@ -98,26 +99,31 @@
               <el-table-column label="序号" width="50px" type="index">
               </el-table-column>
               <el-table-column
+                id="data"
                 prop="data"
                 label="姓名"
                 width="180px"
               ></el-table-column>
               <el-table-column
+                id="age"
                 prop="age"
                 label="年龄"
                 width="180px"
               ></el-table-column>
               <el-table-column
+                id="startTime"
                 prop="startTime"
                 label="开始时间"
                 width="180px"
               ></el-table-column>
               <el-table-column
+                id="endTime"
                 prop="endTime"
                 label="结束时间"
                 width="180px"
               ></el-table-column>
               <el-table-column
+                id="操作人"
                 prop="caozuoName"
                 label="操作人"
                 width="180px"
@@ -133,6 +139,7 @@
                 width="180px"
               ></el-table-column>
               <el-table-column
+                id="xianji"
                 prop="xianji"
                 label="县级地区"
                 width="180px"
@@ -226,6 +233,14 @@ export default {
     switchs() {
       console.log("目前按钮状态为:" + this.buttons);
     },
+    //新增方法
+    create_bth() {
+      const create_bth = document.getElementById("create_bth");
+      create_bth.addEventListener("click", () => {
+        let listConente = [];
+        listConente.unshift({});
+      });
+    },
     //点击重置按钮，所有输入为空
     initAll() {
       const that = this;
@@ -252,42 +267,5 @@ export default {
 </script>
 
 <style lang="less">
-.returnGo {
-  position: absolute;
-  display: flex;
-  right: 50px;
-  top: 0px;
-}
-.div_view {
-  width: 50px;
-  height: 100%;
-  background-color: red;
-}
-
-.colors:hover {
-  color: aqua;
-}
-
-.dataClass {
-  position: absolute;
-  left: 65%;
-  top: 0%;
-}
-.input_width {
-  width: 10%;
-}
-.to_one {
-  position: relative;
-  right: auto;
-  width: 100%;
-  height: 100%;
-}
-.creates {
-  position: relative;
-  left: 10px;
-}
-.el-card__body {
-  padding: 20px;
-  float: left;
-}
+@import "../css/ElementTypeVueDemo.css";
 </style>
