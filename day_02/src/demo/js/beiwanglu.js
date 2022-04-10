@@ -25,21 +25,28 @@ class renderFurEach {
     }
 }
 //新增方法
-const r1 = new renderFurEach
-addBtn.addEventListener('click', () => {
-    //从上面插入 同样插入的方法还有 push()
-    listContent.unshift({
-        context: context.value,
-        date: date.value,
-        time: time.value,
+export function addCreate() {
+    const r1 = new renderFurEach
+    addBtn.addEventListener('click', () => {
+        console.log('点击新增按钮')
+        //从上面插入 同样插入的方法还有 push()
+        listContent.unshift({
+            context: context.value,
+            date: date.value,
+            time: time.value,
+        })
+        r1.reder()
     })
-    r1.reder()
-})
+}
+
 //删除方法
-deleteBtn.addEventListener('click', () => {
-    //删除最后一行
-    listContent.shift()
-    //删除第一行
-    // listContent.pop()
-    r1.reder()
-})
+export function remove() {
+    deleteBtn.addEventListener('click', () => {
+        //删除最后一行
+        listContent.shift()
+        //删除第一行
+        // listContent.pop()
+        r1.reder()
+    })
+}
+
