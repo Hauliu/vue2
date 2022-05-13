@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.bloak{
+  position:absolute;
+  left: 10%;
+}
+.weizhi{
+    position:relative;
+    right: 25%
+}
+.size{
+    position: relative;
+    left: 33%;
+}
+/* body{
+    margin: 0;
+
+}
+input#date {
+    position: relative;
+    right: 20px;
+}
+input#time {
+    position: relative;
+    left: 20px;
+}
+.app{
+    position: relative;
+    left: 10px;
+}
+.addBtn{
+    position: relative;
+    bottom: -37px;
+    left: -75px;
+    margin-left: 15px;
+}
+.remove{
+    position: relative;
+    bottom: -37px;
+    left: -75px;
+}
+.weizhitiaozheng{
+    position: relative;
+    top: 30px;
+    right: 85px;
+}
+.addBtn{
+    color: #f6f6f6;
+    background-color: black;
+}
+.addBtn:hover{
+    margin: 1px 1px 1px 1px;
+    color: #f6f6f6;
+    background-color: black;
+}
+.remove{
+    color: #f6f6f6;
+    background-color: black;
+}
+.remove:hover{
+    margin: 1px 1px 1px 1px;
+    color: #f6f6f6;
+    background-color: black;
+} */

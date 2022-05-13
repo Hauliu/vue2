@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+    <link rel="stylesheet" href="../品牌列表案例/css/brandlist.css">
+</head>
+<body>
+
+    <div id="app">
+        <!-- 卡片区域 -->
+        <div class="card">
+          <div class="card-header" style="background-color: bisque;">
+            添加品牌
+          </div>
+          <div class="card-body">
+            <!-- 添加品牌的表单区域 -->
+            <form @submit.prevent="add">
+              <div class="form-row align-items-center">
+                <div class="col-auto">
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">品牌名称</div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="请输入品牌名称"  v-model.trim="bran">
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-2" @click.enter="xinzeng">添加</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+        <!-- 表格区域 -->
+        <table class="table table-bordered table-hover table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">品牌名称</th>
+              <th scope="col">状态</th>
+              <th scope="col">创建时间</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in list">
+              <td>{{item.id}}</td>
+              <td>{{item.name}}</td>
+              <td>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" :id="'cd' + item.id" v-model="item.status">
+                  <label class="custom-control-label" :for="'cd' + item.id" v-if="item.status">stop</label>
+                  <label class="custom-control-label" :for="'cd' + item.id" v-else>start</label>
+                </div>
+              </td>
+              <!-- 加入全局过滤器，显示时间： YYYY-MM-DD HH:ss:mm -->
+              <td>{{item.time | filterTime}}</td>
+              <td>
+                <a href="javascript:;" @click="remove(item.id)">删除</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+<script src="../lib/vue-2.6.12.js"></script>
+<script src="../品牌列表案例/lib/dayjs.min.js"></script>
+<script>
+
+    // 添加全局过滤器
+    Vue.filter('filterTime',function(time){
+
+      //对time 进行格式化处理 格式为 : YYYY-MM-DD HH:mm:ss
+      const timeStr = dayjs(time).format('YYYY/MM/DD HH:mm:ss')
+      //返回时间
+      return timeStr
+    })
+
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            bran: '',
+            indexId: 4,
+            list: [
+                {id: 1, name: '宝马', status: true, time: new Date()},
+                {id: 2, name: '奔驰', status: false, time: new Date()},
+                {id: 3, name: '奥迪', status: true, time: new Date()}
+            ]
+
+        },
+        methods: {
+            // 点击删除按钮，进行删除事件
+            remove(id){
+             this.list =  this.list.filter(item => item.id !== id)
+            },
+            // 点击新增，阻止触发页面刷新的功能
+            add(){
+                if(this.bran === ''){
+                    alert("请注意，不允许填写空字符串")
+                    return 
+                }else{
+                    //如果不为空，那么执行增加的逻辑
+                    //首先把要添加的对象加进来
+                    const obj = {
+                        id: this.indexId,
+                        name: this.bran,
+                        status: true,
+                        time: new Date()
+
+                    }
+
+                    //往 list 集合中添加对象
+                    this.list.push(obj)
+                    //清空 bran 让 this.indexId 自增加1 
+                    this.bran = ''
+                    this.indexId++
+
+                }
+            },
+                
+            xinzeng(e){
+                console.log("点击了确定按钮")
+            }
+        },
+    })
+</script>
+</body>
+</html>

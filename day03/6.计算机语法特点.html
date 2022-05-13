@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <div class="box" v-band:style="{backgroundColor: rgb}">
+            {{rgb}}
+        </div>
+        <button @click="show">按钮</button>
+    </div>
+    <script src="../lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                //红
+                r: 0,
+                //绿
+                g: 0,
+                //蓝
+                b:0
+
+            },
+            
+        })
+    </script>
+
+</body>
+</html>

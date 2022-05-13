@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>姓名： {{username}}</p>
+        <p>性别： {{gender}} </p>
+        <hr>
+
+        <div v-text='info'></div>
+        <div>{{info}}</div>
+        <div v-html='info'></div>
+    </div>
+
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <!-- 创建vue 实例对象 -->
+
+    <script>
+        const vm = new Vue({
+
+            el: '#app',
+            data: {
+                username: 'ii',
+                gender: '男',
+                info: ' <h4 style="color: blue; font-weight: 100;">我是无敌反派</h4>'
+            },
+        })
+    </script>
+
+</body>
+
+</html>

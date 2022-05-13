@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <p>message 的值是: {{message | cai}}  </p>
+    </div>
+    <hr>
+
+    <div id="app2">
+        <h4>全局过滤： {{message | cai}}</h4>
+    </div>
+    <script src="../lib/vue-2.6.12.js"></script>
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello vue.js'
+            },
+            // 编写过滤器
+            filters: {
+                //过滤器中的 val 指向的永远是 message 对象
+                cai(val){
+                    console.log(val)
+
+                    //设置第一个索引为大写
+                    const fisters = val.charAt(0).toUpperCase()
+                    //字符串 slice 方法，从指定索引往后截取
+                    const slices = val.slice(1)
+
+                    //返回
+                    return fisters + slices
+                }
+            }
+        })
+
+        const vm2 = new Vue({
+            el: '#app2',
+            data: {
+                message: 'javascript'
+            }
+        })
+
+        // 过滤器
+        Vue.filter('cai',function(str){
+            //设置第一个索引为大写
+            const f1 = str.charAt(0).toUpperCase()
+            //字符串 slice 方法，从指定索引往后截取
+            const s1 = str.slice(1)
+
+            return f1 + s1 + '``````'
+
+        })
+        
+    </script>
+    
+</body>
+</html>
